@@ -1,18 +1,24 @@
 import ImageSlider from './ImageSlider';
 
+// import images for the slider
+import img1 from '../assets/images/student_2.webp';
+import img2 from '../assets/images/student_3.png';
+import img3 from '../assets/images/student_4.png';
+// import img4 from '../assets/images/student_6.png'
+
 const HeroSection = () => {
     // Example images array - replace with your actual images
     const sliderImages = [
         {
-            url: '/src/assets/images/slide1.jpg', // Update with your image paths
+            url: img1, // Update with your image paths
             alt: 'Students in classroom'
         },
         {
-            url: '/src/assets/images/slide2.jpg',
+            url: img2,
             alt: 'Campus view'
         },
         {
-            url: '/src/assets/images/slide3.jpg',
+            url: img3,
             alt: 'Library study area'
         }
     ];
