@@ -41,6 +41,21 @@ const HeroSection = () => {
                                 Get Started
                             </button>
                         </div>
+                        {/* Special key things */}
+                        <div className='flex-grow sm:flex space-x-4 sm:space-x-6 md:space-x-8 mt-25'>
+                            <div className='w-[114px] h-[100px] bg-[#008DFF] rounded-lg flex items-center justify-center text-white hover:bg-[#0077cc] transition-colors'>
+                                text
+                            </div>
+                            <div className='w-[114px] h-[100px] bg-[#008DFF] rounded-lg flex items-center justify-center text-white hover:bg-[#0077cc] transition-colors'>
+                                text-2
+                            </div>
+                            <div className='w-[114px] h-[100px] bg-[#008DFF] rounded-lg flex items-center justify-center text-white hover:bg-[#0077cc] transition-colors'>
+                                text-3
+                            </div>
+                            <div className='w-[114px] h-[100px] bg-[#008DFF] rounded-lg flex items-center justify-center text-white hover:bg-[#0077cc] transition-colors'>
+                                text-4
+                            </div>
+                        </div>
                     </div>
                     
                     {/* Image Slider */}

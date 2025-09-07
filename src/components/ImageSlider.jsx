@@ -20,63 +20,32 @@ const ImageSlider = ({ images }) => {
         setCurrentIndex(index);
     };
 
-    const goToPrevious = () => {
-        setCurrentIndex((prevIndex) => 
-            prevIndex === 0 ? images.length - 1 : prevIndex - 1
-        );
-    };
-
-    const goToNext = () => {
-        setCurrentIndex((prevIndex) => 
-            prevIndex === images.length - 1 ? 0 : prevIndex + 1
-        );
-    };
-
     return (
-        <div className="relative w-full h-[400px] flex items-center">
+        <div className="relative w-[713px] h-[713px] mx-auto">
             {/* Main content container */}
-            <div className="relative w-[90%] h-full overflow-hidden rounded-lg">
+            <div className="relative w-[713px] h-[713px] overflow-hidden rounded-lg">
                 {/* Images */}
                 <div 
-                    className="w-full h-full transition-transform duration-500 ease-in-out"
+                    className="absolute w-[713px] h-[713px] transition-transform duration-500 ease-in-out"
                     style={{ transform: `translateX(-${currentIndex * 100}%)` }}
                 >
-                    <div className="absolute flex w-full h-full">
+                    <div className="flex">
                         {images.map((image, index) => (
                             <div
                                 key={index}
-                                className="w-full h-full flex-shrink-0"
+                                className="w-[713px] h-[713px] flex-shrink-0 flex items-center justify-center"
                                 style={{ transform: `translateX(${index * 100}%)` }}
                             >
                                 <img
                                     src={image.url}
                                     alt={image.alt}
-                                    className="w-full h-full object-cover"
+                                    className="w-[713px] h-[713px] object-contain"
                                 />
                             </div>
                         ))}
                     </div>
                 </div>
-
-                {/* Navigation Arrows */}
-                <button
-                    onClick={goToPrevious}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/50 hover:bg-white/75 rounded-full p-2 transition-colors"
-                    aria-label="Previous slide"
-                >
-                    <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                    </svg>
-                </button>
-                <button
-                    onClick={goToNext}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/50 hover:bg-white/75 rounded-full p-2 transition-colors"
-                    aria-label="Next slide"
-                >
-                    <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                </button>
+                
             </div>
 
             {/* Vertical Dots Navigation */}
