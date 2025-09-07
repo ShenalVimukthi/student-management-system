@@ -5,6 +5,9 @@ import './App.css'
 import Landing from './components/Landing';
 import NotFound from './components/NotFound';
 import About from './components/About';
+import Contact from './components/Contact';
+import Courses from './components/Courses';
+import Teachers from './components/Teachers';
 
 function App() {
   
@@ -15,6 +18,9 @@ function App() {
           <Route path='*' element={<NotFound/>}/>
           <Route path='/' element={<Landing/>}/>
           <Route path='/about' element={<About/>}/>
+          <Route path='/contact' element={<Contact/>}/>
+          <Route path='/courses' element={<Courses/>}/>
+           <Route path='/teachers' element={<Teachers/>}/>
         </Routes>
     </div>
   )

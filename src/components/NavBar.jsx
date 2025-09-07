@@ -1,16 +1,22 @@
 import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import logo from '../assets/images/logo.png';
 
-const NavBar = ({ onLogin, onSignUp }) => {
+const NavBar = ({ onLogin, onSignUp, onNavigation }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const location = useLocation();
+  const [activePath, setActivePath] = useState('/');
+
+  const handleNavClick = (path) => {
+    setActivePath(path);
+    onNavigation(path);
+  };
 
   const navigationLinks = [
-    { name: 'About', path: '/about' },
-    { name: 'Contact', path: '/contact' },
-    { name: 'Courses', path: '/courses' },
+    { name: 'Home',     path:'/'},
+    { name: 'About',    path: '/about' },
+    { name: 'Contact',  path: '/contact' },
+    { name: 'Courses',  path: '/courses' },
     { name: 'Teachers', path: '/teachers' }
   ];
 
@@ -31,15 +37,16 @@ const NavBar = ({ onLogin, onSignUp }) => {
           <ul className="hidden sm:flex space-x-4 sm:space-x-6 md:space-x-8 text-[#008DFF] items-center justify-start">
             {navigationLinks.map((link) => (
               <li key={link.name}>
-                <Link
-                  to={link.path}
+                <button
+                  onClick={() => handleNavClick(link.path)}
                   className={`hover:text-[#0077cc] transition-colors hover:cursor-pointer ${
-                    location.pathname === link.path ? 'text-[#0077cc] font-semibold' : ''
+                    activePath === link.path
+                      ? 'text-[#0077cc] font-bold border-b-2 border-[#0077cc]' : ''
                   }`}
-                  aria-current={location.pathname === link.path ? 'page' : undefined}
+                  aria-current={activePath === link.path ? 'page' : undefined}
                 >
                   {link.name}
-                </Link>
+                </button>
               </li>
             ))}
           </ul>
@@ -141,8 +148,7 @@ const NavBar = ({ onLogin, onSignUp }) => {
 };
 
 NavBar.propTypes = {
-  onLogin: PropTypes.func.isRequired,
-  onSignUp: PropTypes.func.isRequired,
-};
-
-export default NavBar;
+    onLogin: PropTypes.func.isRequired,
+    onSignUp: PropTypes.func.isRequired,
+    onNavigation: PropTypes.func.isRequired,
+};export default NavBar;
