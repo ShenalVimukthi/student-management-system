@@ -26,11 +26,11 @@ const NavBar = ({ onLogin, onSignUp, onNavigation }) => {
 
   return (
     <header className="w-full min-h-[100px] bg-transparent fixed top-0 left-0 right-0 z-10 px-4 sm:px-6 lg:px-8">
-      <div className="flex items-center justify-between h-full">
+      <div className="flex items-center justify-between h-full mt-10">
         {/* Brand/Logo */}
-        <Link to="/" className="flex-shrink-0" aria-label="Home">
+        {/* <Link to="/" className="flex-shrink-0" aria-label="Home">
           <img src={logo} alt="Company Logo" className="w-10 sm:w-12 md:w-40 h-auto object-contain"/>
-        </Link>
+        </Link> */}
 
         {/* Navigation links */}
         <nav className="flex-grow">
